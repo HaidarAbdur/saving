@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabunganKu - Kelola Keuangan Bijak</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body data-page="beranda">
+    <div class="app-shell">
+        <!-- Hero Header (DANA Blue Theme) -->
+        <header class="hero-header">
+            <div class="hero-greeting">Halo, Selamat Datang!</div>
+            <div class="hero-tagline">Kelola uangmu dengan bijak</div>
+            
+            <div class="saldo-section">
+                <div class="saldo-label">Saldo Terkini</div>
+                <div class="saldo-amount-row">
+                    <div class="saldo-amount" id="saldo-amount">Rp 0</div>
+                    <button type="button" class="saldo-toggle-btn" id="toggle-saldo" aria-label="Sembunyikan saldo" title="Sembunyikan saldo">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="saldo-summary">
+                    <div class="summary-item">
+                        <div class="summary-icon income">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <div class="summary-info">
+                            <span class="label">Total Masuk</span>
+                            <span class="value" id="total-masuk">Rp 0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-icon expense">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </div>
+                        <div class="summary-info">
+                            <span class="label">Total Keluar</span>
+                            <span class="value" id="total-keluar">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu Utama Grid -->
+        <h2 class="section-title">Layanan Utama</h2>
+        <nav class="menu-grid">
+            <a href="/pemasukan" class="menu-item">
+                <div class="menu-icon mi-pemasukan">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <span class="menu-label">Pemasukan</span>
+            </a>
+            
+            <a href="/pengeluaran" class="menu-item">
+                <div class="menu-icon mi-pengeluaran">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <span class="menu-label">Pengeluaran</span>
+            </a>
+            
+            <a href="/catatan" class="menu-item">
+                <div class="menu-icon mi-catatan">
+                    <i class="fa-solid fa-note-sticky"></i>
+                </div>
+                <span class="menu-label">Catatan</span>
+            </a>
+            
+            <a href="/target" class="menu-item">
+                <div class="menu-icon mi-target">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <span class="menu-label">Target</span>
+            </a>
+        </nav>
+
+        <!-- Widget Analitik -->
+        <h2 class="section-title">Analitik Keuangan</h2>
+        <div class="card">
+            <div class="card-title">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Pengeluaran Bulan Ini</span>
+            </div>
+            <div class="chart-container" id="chart-container">
+                <canvas id="analitikChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="page-footer">
+            <footer class="copyright" role="contentinfo">
+                © <span data-copyright-year></span> haidarohman. All Rights Reserved.
+            </footer>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav">
+            <a href="/" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="/riwayat" class="nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Aktivitas</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon"></div>
+        <span id="toast-message" class="toast-message"></span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

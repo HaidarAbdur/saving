@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabunganKu - Aktivitas & Riwayat Transaksi</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-page="riwayat">
+    <div class="app-shell">
+        <!-- Page Header -->
+        <header class="page-header">
+            <a href="/" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h1>Riwayat Transaksi</h1>
+            <button id="btn-reset" class="back-btn" style="margin-left: auto;" title="Reset Semua Transaksi">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </header>
+
+        <!-- Daftar Riwayat -->
+        <div class="riwayat-list-container mt-2">
+            <div id="riwayat-list" class="riwayat-list">
+                <!-- JS populated -->
+            </div>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="page-footer">
+            <footer class="copyright" role="contentinfo">
+                © <span data-copyright-year></span> haidarohman. All Rights Reserved.
+            </footer>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="/riwayat" class="nav-item active">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Aktivitas</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <div class="modal-title">Konfirmasi</div>
+            <p class="modal-message">Apakah Anda yakin ingin menghapus seluruh riwayat transaksi?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-cancel btn-sm" id="confirm-cancel">Batal</button>
+                <button type="button" class="btn btn-primary btn-sm" id="confirm-accept">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon"></div>
+        <span id="toast-message" class="toast-message"></span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabunganKu - Catat Pemasukan</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-page="pemasukan">
+    <div class="app-shell">
+        <!-- Page Header -->
+        <header class="page-header">
+            <a href="/" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h1>Catat Pemasukan</h1>
+        </header>
+
+        <!-- Form Transaksi Pemasukan -->
+        <div class="form-container">
+            <form id="transaksi-form">
+                <div class="form-group text-center">
+                    <label class="input-prefix-label">Nominal Uang Masuk</label>
+                    <input type="number" id="jumlah" class="form-input input-nominal" placeholder="0" min="1" required>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="keterangan" class="form-label">Keterangan</label>
+                    <textarea id="keterangan" class="form-textarea" rows="3" placeholder="Contoh: THR, Gajian, dll." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggal" class="form-label">Tanggal Transaksi</label>
+                    <input type="date" id="tanggal" class="form-input" required>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-2">
+                    <i class="fa-solid fa-circle-check"></i> Simpan Pemasukan
+                </button>
+            </form>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="page-footer">
+            <footer class="copyright" role="contentinfo">
+                © <span data-copyright-year></span> haidarohman. All Rights Reserved.
+            </footer>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="/riwayat" class="nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Aktivitas</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon"></div>
+        <span id="toast-message" class="toast-message"></span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabunganKu - Catatan Keuangan</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-page="catatan">
+    <div class="app-shell">
+        <!-- Page Header -->
+        <header class="page-header">
+            <a href="/" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h1>Catatan Bebas</h1>
+            <div id="save-status" class="save-status" style="margin-left: auto;"></div>
+        </header>
+
+        <!-- Container Catatan -->
+        <div class="form-container">
+            <div class="form-group">
+                <label for="catatan-textarea" class="form-label">Tulis coretan keuangan, rencana belanja, atau ide tabungan Anda di bawah ini:</label>
+                <textarea id="catatan-textarea" class="form-textarea" placeholder="Tulis catatan Anda di sini..."></textarea>
+            </div>
+            
+            <button id="btn-save-catatan" class="btn btn-primary mt-1">
+                <i class="fa-solid fa-floppy-disk"></i> Simpan Catatan
+            </button>
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="page-footer">
+            <footer class="copyright" role="contentinfo">
+                © <span data-copyright-year></span> haidarohman. All Rights Reserved.
+            </footer>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="/riwayat" class="nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Aktivitas</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon"></div>
+        <span id="toast-message" class="toast-message"></span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

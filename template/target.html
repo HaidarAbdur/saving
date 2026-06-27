@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabunganKu - Target Tabungan</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-page="target">
+    <div class="app-shell">
+        <!-- Page Header -->
+        <header class="page-header">
+            <a href="/" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            <h1>Target Tabungan</h1>
+        </header>
+
+        <!-- Form Tambah Target Baru -->
+        <div class="form-container">
+            <div class="card" style="margin: 0; padding: 1.25rem;">
+                <div class="card-title">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Target Baru</span>
+                </div>
+                <form id="target-form">
+                    <div class="form-group">
+                        <label for="target-nama" class="form-label">Nama Target</label>
+                        <input type="text" id="target-nama" class="form-input" placeholder="Contoh: Beli Sepatu, Laptop Baru" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target-nominal" class="form-label">Nominal Target (Rp)</label>
+                        <input type="number" id="target-nominal" class="form-input" placeholder="Contoh: 500000" min="1" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-bullseye"></i> Buat Target
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Daftar Target Tabungan -->
+        <h2 class="section-title">Daftar Impian Anda</h2>
+        <div id="target-list" class="target-list">
+            <!-- JS populated -->
+        </div>
+
+        <!-- Copyright Footer -->
+        <div class="page-footer">
+            <footer class="copyright" role="contentinfo">
+                © <span data-copyright-year></span> haidarohman. All Rights Reserved.
+            </footer>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="bottom-nav">
+            <a href="/" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="/riwayat" class="nav-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Aktivitas</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal Pop-up: Tambah Dana Target -->
+    <div id="modal-tambah-dana" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <div class="modal-title">Tambah Dana Tabungan</div>
+            <div class="form-group">
+                <label for="tambah-dana-jumlah" class="form-label">Nominal Dana (Rp)</label>
+                <input type="number" id="tambah-dana-jumlah" class="form-input" placeholder="0" min="1">
+            </div>
+            <div class="target-actions" style="margin-top: 1rem;">
+                <button id="btn-submit-tambah-dana" class="btn btn-success">Simpan</button>
+                <button id="btn-close-modal" class="btn btn-outline">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <div class="modal-title">Konfirmasi</div>
+            <p class="modal-message">Apakah Anda yakin?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-cancel btn-sm" id="confirm-cancel">Batal</button>
+                <button type="button" class="btn btn-primary btn-sm" id="confirm-accept">Ya</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon"></div>
+        <span id="toast-message" class="toast-message"></span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
