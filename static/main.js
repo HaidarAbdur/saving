@@ -1,9 +1,3 @@
-/* ============================================================
-   TabunganKu - Main JavaScript (All Pages)
-   ============================================================ */
-
-// ---- Helper Functions ----
-
 function formatRupiah(num) {
     if (num === null || num === undefined) num = 0;
     return new Intl.NumberFormat('id-ID', {
@@ -76,9 +70,7 @@ async function apiDelete(url) {
     return { ok: res.ok, data };
 }
 
-// ============================================================
-// PAGE: BERANDA (index.html)
-// ============================================================
+// Beranda: Saldo & Ringkasan
 
 let saldoData = { saldo: 0, totalMasuk: 0, totalKeluar: 0 };
 let saldoVisible = true;
@@ -197,10 +189,7 @@ async function loadBerandaAnalitik() {
     }
 }
 
-// ============================================================
-// PAGE: PEMASUKAN & PENGELUARAN (pemasukan.html / pengeluaran.html)
-// ============================================================
-
+// Transaksi pemasukan pengeluaran
 function initTransaksiForm(tipe) {
     const form = document.getElementById('transaksi-form');
     if (!form) return;
@@ -251,9 +240,7 @@ function initTransaksiForm(tipe) {
     });
 }
 
-// ============================================================
-// PAGE: CATATAN (catatan.html)
-// ============================================================
+// Catatan
 
 async function initCatatan() {
     const textarea = document.getElementById('catatan-textarea');
@@ -334,9 +321,7 @@ async function initCatatan() {
     }
 }
 
-// ============================================================
-// PAGE: TARGET TABUNGAN (target.html)
-// ============================================================
+// Target tabungan
 
 async function initTarget() {
     await loadTargetList();
@@ -510,9 +495,7 @@ async function hapusTarget(id) {
     });
 }
 
-// ============================================================
-// PAGE: RIWAYAT / AKTIVITAS (riwayat.html)
-// ============================================================
+// riwayat transaksi
 
 function openConfirmModal(options) {
     const modal = document.getElementById('confirm-modal');
@@ -633,9 +616,7 @@ async function loadRiwayatAktivitas() {
     }
 }
 
-// ============================================================
-// FOOTER YEAR
-// ============================================================
+// copyright
 
 function initFooterYear() {
     document.querySelectorAll('[data-copyright-year]').forEach((el) => {
@@ -643,9 +624,7 @@ function initFooterYear() {
     });
 }
 
-// ============================================================
-// PAGE ROUTER (Mendeteksi Halaman via data-page pada <body>)
-// ============================================================
+// page initialization based on data-page attribute
 
 document.addEventListener('DOMContentLoaded', () => {
     initFooterYear();
