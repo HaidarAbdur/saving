@@ -10,7 +10,7 @@ from functools import wraps
 # pyrefly: ignore [missing-import]
 from postgrest.exceptions import APIError
 
-load_dotenv(dotenv_path="/home/haidar/dokumen/tabunganbaru/.env")
+load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip()
 SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "").strip()
