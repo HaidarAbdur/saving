@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -15,22 +17,24 @@
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body data-page="beranda">
     <div class="app-shell">
         <!-- Hero Header (DANA Blue Theme) -->
         <header class="hero-header">
             <div class="hero-greeting">Halo, Selamat Datang!</div>
             <div class="hero-tagline">Kelola uangmu dengan bijak</div>
-            
+
             <div class="saldo-section">
                 <div class="saldo-label">Saldo Terkini</div>
                 <div class="saldo-amount-row">
                     <div class="saldo-amount" id="saldo-amount">Rp 0</div>
-                    <button type="button" class="saldo-toggle-btn" id="toggle-saldo" aria-label="Sembunyikan saldo" title="Sembunyikan saldo">
+                    <button type="button" class="saldo-toggle-btn" id="toggle-saldo" aria-label="Sembunyikan saldo"
+                        title="Sembunyikan saldo">
                         <i class="fa-regular fa-eye"></i>
                     </button>
                 </div>
-                
+
                 <div class="saldo-summary">
                     <div class="summary-item">
                         <div class="summary-icon income">
@@ -41,7 +45,7 @@
                             <span class="value" id="total-masuk">Rp 0</span>
                         </div>
                     </div>
-                    
+
                     <div class="summary-item">
                         <div class="summary-icon expense">
                             <i class="fa-solid fa-arrow-up"></i>
@@ -64,21 +68,21 @@
                 </div>
                 <span class="menu-label">Pemasukan</span>
             </a>
-            
+
             <a href="/pengeluaran" class="menu-item">
                 <div class="menu-icon mi-pengeluaran">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
                 <span class="menu-label">Pengeluaran</span>
             </a>
-            
+
             <a href="/catatan" class="menu-item">
                 <div class="menu-icon mi-catatan">
                     <i class="fa-solid fa-note-sticky"></i>
                 </div>
                 <span class="menu-label">Catatan</span>
             </a>
-            
+
             <a href="/target" class="menu-item">
                 <div class="menu-icon mi-target">
                     <i class="fa-solid fa-bullseye"></i>
@@ -128,4 +132,5 @@
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
+
 </html>

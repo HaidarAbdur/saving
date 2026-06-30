@@ -53,40 +53,6 @@ def supabase_table(name):
 def to_dict_list(result):
     return [dict(row) for row in result.data or []]
 
-
-# def create_table():
-#     conn = db_connect()
-#     cur = conn.cursor()
-#     cur.execute("""
-#         CREATE TABLE IF NOT EXISTS tabungan(
-#             id INTEGER PRIMARY KEY AUTOINCREMENT,
-#             tipe TEXT NOT NULL CHECK(tipe IN ('pemasukan', 'pengeluaran')),
-#             jumlah REAL NOT NULL,
-#             keterangan TEXT,
-#             tanggal DATETIME DEFAULT CURRENT_TIMESTAMP
-#         )
-#     """)
-
-#     cur.execute("""
-#         CREATE TABLE IF NOT EXISTS catatan(
-#             id INTEGER PRIMARY KEY AUTOINCREMENT,
-#             konten TEXT,
-#             tanggal DATETIME DEFAULT CURRENT_TIMESTAMP
-#         )
-#     """)
-
-#     cur.execute("""
-#         CREATE TABLE IF NOT EXISTS target_tabungan(
-#             id INTEGER PRIMARY KEY AUTOINCREMENT,
-#             nama TEXT NOT NULL,
-#             nominal_target REAL NOT NULL,
-#             terkumpul REAL DEFAULT 0,
-#             tanggal DATETIME DEFAULT CURRENT_TIMESTAMP
-#         )
-#     """)
-#     conn.commit()
-#     conn.close()
-
 # HALAMAN HTML
 
 @app.route("/")
@@ -127,7 +93,7 @@ def transaksi():
     if jumlah is None:
         return jsonify({'status':'error', 'message':'Jumlah harus diisi'}), 400
     try:
-        jumlah = float(jumlah)
+        jumlah = int(jumlah)
     except (ValueError, TypeError):
         return jsonify({'status':'error', 'message':'Jumlah harus berupa angka'}), 400
         
